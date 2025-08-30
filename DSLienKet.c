@@ -157,6 +157,16 @@ void DeleteNodeAtPosition(Node**head, int pos){
     
 }
 
+void DeleteAllNode(Node**head){
+    Node *temp = *head;
+    
+    while (*head != NULL){
+        *head = (*head)->next;
+        free(temp);
+        temp = *head;
+    }
+}
+
 void SwapNode (Node**head, int pos1, int pos2){
     if (*head == NULL || pos1 == pos2){
         return;
@@ -221,6 +231,8 @@ int main()
     // printf("%d ", CountLinkList(head));
     // DeleteLastNode(&head);
     SwapNode(&head, 1, 4);
+    PrintLinkList(head);
+    
     PrintLinkList(head);
     return 0;
 }
